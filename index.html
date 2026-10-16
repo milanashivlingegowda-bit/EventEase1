@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eaf4ff">
+  <meta name="description" content="Discover events, register with ease, and keep every ticket in one place.">
+  <title>EventEase — Find your next moment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-view="discover"><span class="brand-mark">e</span><span>event<span class="brand-light">ease</span><small>MAKE ROOM FOR MOMENTS</small></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="side-nav">
+        <button class="nav-item active" data-view="discover"><span>⌕</span> Discover</button>
+        <button class="nav-item" data-view="registrations"><span>▤</span> My registrations <b id="bookingCount" class="nav-count">0</b></button>
+        <button class="nav-item" data-view="favourites"><span>♡</span> Favourites</button>
+      </nav>
+      <div class="side-label side-label-spaced">PERSONAL</div>
+      <nav class="side-nav">
+        <button class="nav-item" data-view="profile"><span>◎</span> My profile</button>
+        <button class="nav-item" data-view="settings"><span>⚙</span> Settings</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-spark">✳</span><strong>Make it a moment.</strong><p>Your next favourite memory could be one click away.</p><button data-view="discover" class="text-action">Explore events ↗</button></div>
+        <div id="sidebarAccount" class="account-mini"><div class="avatar">G</div><div class="account-info"><strong>Guest visitor</strong><small>Explore as a guest</small></div><button class="icon-button" id="accountAction" aria-label="Account">↗</button></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumbCurrent">Discover</strong></div>
+        <div class="top-actions">
+          <button class="theme-toggle" id="quickTheme" title="Toggle dark mode" aria-label="Toggle dark mode">☾</button>
+          <button class="login-top" id="topLogin">Log in <span>↗</span></button>
+          <button class="primary small" id="topSignup">Get started <span>↗</span></button>
+        </div>
+      </header>
+
+      <section id="discoverView" class="view active">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="live-dot"></span> YOUR CAMPUS, YOUR MOMENTS</div>
+            <h1>Find your next<br><span>great moment.</span></h1>
+            <p>From big ideas to unforgettable nights — discover experiences worth showing up for.</p>
+            <div class="hero-buttons"><button class="primary" id="exploreButton">Explore events <span>↗</span></button><button class="secondary" data-view="registrations">My tickets <span>→</span></button></div>
+            <div class="hero-social"><div class="avatar-stack"><i>A</i><i>M</i><i>S</i><i>+</i></div><span><strong>Good things happen</strong><br>when we show up together.</span></div>
+          </div>
+          <div class="hero-art">
+            <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+            <div class="floating-note note-top"><span>✦</span> Your people are here</div>
+            <div class="art-card art-card-back"><div class="art-card-label">UP NEXT · CAMPUS LIFE</div><div class="art-emoji">🎸</div><div class="art-card-lines"><b></b><i></i></div></div>
+            <div class="art-card art-card-front"><div class="art-ticket-top"><span>EVENT PASS</span><span>✳</span></div><div class="art-big-emoji">✺</div><div class="art-ticket-title">Make memories.<br>Not just plans.</div><div class="ticket-dash"></div><div class="art-ticket-bottom"><span>YOUR NEXT CHAPTER</span><span>EE.001 ↗</span></div></div>
+            <div class="floating-note note-bottom"><span class="note-icon">♡</span><div><strong>Something for everyone</strong><small>Find your kind of fun.</small></div></div>
+          </div>
+          <div class="hero-bottom-glow"></div>
+        </div>
+
+        <div class="stats-strip">
+          <div><span class="stat-icon">✳</span><span><strong id="statEvents">06</strong><small>Curated events</small></span></div>
+          <div><span class="stat-icon">↗</span><span><strong>One place</strong><small>All your bookings</small></span></div>
+          <div><span class="stat-icon">♡</span><span><strong>Made for you</strong><small>Moments that matter</small></span></div>
+        </div>
+
+        <div class="section-heading"><div><div class="eyebrow muted">A LITTLE SOMETHING FOR EVERYONE</div><h2>Explore by <span>vibe.</span></h2></div><span class="heading-note">Pick what feels like you <span>↘</span></span></div>
+        <div class="category-row" id="categoryRow">
+          <button class="category-chip selected" data-category="All"><span>✦</span> All events</button>
+          <button class="category-chip" data-category="Technology"><span>⌘</span> Technology</button>
+          <button class="category-chip" data-category="Sports"><span>◈</span> Sports</button>
+          <button class="category-chip" data-category="Cultural"><span>♫</span> Cultural</button>
+          <button class="category-chip" data-category="Workshop"><span>✎</span> Workshops</button>
+        </div>
+        <div class="event-toolbar"><div><h3>Coming up <span class="result-count" id="resultCount">0 events</span></h3><p>Good plans start right here.</p></div><div class="search-wrap"><span>⌕</span><input id="eventSearch" type="search" placeholder="Search events, places..." aria-label="Search events"><kbd>↵</kbd></div></div>
+        <div class="event-grid" id="eventGrid"><div class="loading-card">Finding your next moment…</div></div>
+        <div class="bottom-note"><span>✳</span> There’s always something worth showing up for.</div>
+      </section>
+
+      <section id="registrationsView" class="view">
+        <div class="page-intro"><div class="eyebrow muted">YOUR PLANS, ALL TOGETHER</div><h1>My <span>registrations.</span></h1><p>Your next moments, neatly in one place.</p></div>
+        <div id="registrationsContent"></div>
+      </section>
+
+      <section id="favouritesView" class="view">
+        <div class="page-intro"><div class="eyebrow muted">SAVED FOR LATER</div><h1>Your <span>favourites.</span></h1><p>All the events you’ve had your eye on.</p></div>
+        <div id="favouritesContent"></div>
+      </section>
+
+      <section id="profileView" class="view">
+        <div class="page-intro"><div class="eyebrow muted">A LITTLE MORE YOU</div><h1>My <span>profile.</span></h1><p>Make your EventEase space feel like yours.</p></div>
+        <div id="profileContent"></div>
+      </section>
+
+      <section id="settingsView" class="view">
+        <div class="page-intro"><div class="eyebrow muted">MAKE YOURSELF AT HOME</div><h1>Your <span>settings.</span></h1><p>A few little things to make your experience feel right.</p></div>
+        <div id="settingsContent"></div>
+      </section>
+
+      <section id="adminView" class="view">
+        <div class="page-intro admin-intro"><div><div class="eyebrow muted">EVENTEASE CONTROL ROOM</div><h1>Admin <span>dashboard.</span></h1><p>Everything happening, at a glance.</p></div><button class="primary" id="addEventButton">＋ Add event</button></div>
+        <div id="adminContent"></div>
+      </section>
+      <footer class="site-footer"><span class="brand-mini">e</span><span>EventEase © <span id="year"></span></span><span>Made for moments that matter <b>✳</b></span></footer>
+    </main>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close dialog">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
